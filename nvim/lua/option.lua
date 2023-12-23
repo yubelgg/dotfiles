@@ -21,7 +21,6 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undofile = true
 
 opt.hlsearch = false
-opt.list = true
 opt.mouse = ""
 opt.scrolloff = 8
 opt.termguicolors = true
