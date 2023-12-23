@@ -22,7 +22,7 @@ opt.undofile = true
 
 opt.hlsearch = false
 opt.mouse = ""
-opt.scrolloff = 8
+opt.scrolloff = 4
 opt.termguicolors = true
 opt.updatetime = 50
 opt.colorcolumn = "80"
