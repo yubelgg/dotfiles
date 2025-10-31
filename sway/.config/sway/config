@@ -7,7 +7,7 @@ set $down j
 set $up k
 set $right l
 
-set $term alacritty 
+set $term ghostty 
 set $menu wofi --show drun
 set $browser zen-browser
 set $lock swaylock -f -c 000000 

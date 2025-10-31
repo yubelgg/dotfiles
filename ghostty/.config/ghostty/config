@@ -1,0 +1,20 @@
+command = /bin/zsh -l
+shell-integration-features = no-cursor
+
+# Window settings
+window-decoration = false
+background-opacity = 0.85
+window-colorspace = display-p3
+
+# Font settings
+font-family = JetBrainsMono Nerd Font
+font-size = 23
+font-thicken = true
+
+# Cursor settings
+cursor-style = block
+cursor-style-blink = false
+
+theme = Tomorrow Night Bright 
+confirm-close-surface = false
+
