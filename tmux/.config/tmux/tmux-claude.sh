@@ -19,4 +19,4 @@ fi
 
 # Case 3: No popup, not in Claude - open it
 tmux display-popup -d "$DIR" -w 90% -h 90% -E \
-    "tmux new-session -A -s '$SESSION' -c '$DIR' 'claude || bash'"
+    "tmux new-session -A -s '$SESSION' -c '$DIR' 'claude || bash' \; set status off"
