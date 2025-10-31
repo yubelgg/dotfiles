@@ -1,0 +1,14 @@
+# Git
+\.git
+\.gitignore
+\.gitmodules
+
+# Documentation
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Misc
+\.DS_Store
+.*~
+\#.*\#

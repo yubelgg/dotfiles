@@ -1,0 +1,26 @@
+(defcfg
+  process-unmapped-keys yes
+  log-layer-changes yes
+)
+
+(defsrc
+  caps
+  a s d f j k l scln
+)
+
+(defalias
+  a_hrm  (tap-hold 200 200 a  lmet)   ;; GUI
+  s_hrm  (tap-hold 200 200 s  lalt)   ;; ALT
+  d_hrm  (tap-hold 200 200 d  lsft)   ;; SHIFT
+  f_hrm  (tap-hold 200 200 f  lctl)   ;; CTRL
+
+  j_hrm  (tap-hold 200 200 j  rctl)   ;; CTRL
+  k_hrm  (tap-hold 200 200 k  rsft)   ;; SHIFT
+  l_hrm  (tap-hold 200 200 l  ralt)   ;; ALT
+  sc_hrm (tap-hold 200 200 scln rmet)   ;; GUI
+  caps2esc esc                        ;; Caps always Esc
+)                        
+
+(deflayer base
+    @caps2esc   @a_hrm @s_hrm @d_hrm @f_hrm   @j_hrm @k_hrm @l_hrm @sc_hrm
+)

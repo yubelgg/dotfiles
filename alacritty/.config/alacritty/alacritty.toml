@@ -1,0 +1,19 @@
+[terminal.shell]
+program = "/bin/zsh"
+args = ["-1"]
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+decorations = "None"
+opacity = 0.90
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Mono" }
+size = 22
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
+[terminal]
