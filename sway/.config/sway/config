@@ -29,28 +29,28 @@ output eDP-1 {
 exec pkill -x dunst
 exec mako
 
-### Gruvbox (dark) color scheme ---------------------------------------------
-# Palette
-set $bg #1d2021
-set $bg1 #282828
-set $bg2 #3c3836
-set $fg #ebdbb2
-set $muted #a89984
-set $red #cc241d
-set $orange #d65d0e
-set $yellow #d79921
-set $green #98971a
-set $aqua #689d6a
-set $blue #458588
-set $purple #b16286
+### tomorrow night bright color scheme ---------------------------------------------
+set $bg       #000000
+set $fg       #eaeaea
+set $selection #424242
+set $comment  #969896
+set $red      #d54e53
+set $orange   #e78c45
+set $yellow   #e7c547
+set $green    #b9ca4a
+set $aqua     #70c0b1
+set $blue     #7aa6da
+set $purple   #c397d8
+set $border   #4d5057
 
 # Window/border colors: border background text indicator child_border
-client.focused $yellow $bg1 $fg $yellow $yellow
-client.focused_inactive $bg2 $bg1 $fg $bg2 $bg2
-client.unfocused $bg2 $bg $muted $bg2 $bg2
-client.urgent $red $red $fg $red $red
-client.placeholder $bg $bg $fg $bg $bg
-client.background $bg
+client.focused          $blue     $blue      $bg       $purple    $blue
+client.focused_inactive $border   $border    $fg       $border    $border
+client.unfocused        $bg       $bg        $comment  $border    $border
+client.urgent           $red      $red       $fg       $red       $red
+client.placeholder      $bg       $bg        $fg       $bg        $bg
+
+client.background       $bg
 
 for_window [app_id="zen"] move to workspace 1
 for_window [app_id="Alacritty"] move to workspace 3
