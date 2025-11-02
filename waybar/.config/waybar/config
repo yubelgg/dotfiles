@@ -50,7 +50,7 @@
 
     "cpu": {
         "format": "  {usage}%",
-        "interval": 2,
+        "interval": 5,
 
         "states": {
             "critical": 70
@@ -59,7 +59,7 @@
 
     "memory": {
         "format": "  {percentage}%",
-        "interval": 2,
+        "interval": 10,
 
         "states": {
             "critical": 80
@@ -97,6 +97,7 @@
     "mpris": {
         "format": "{player_icon}  {dynamic}",
         "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "interval": 5,
         "player-icons": {
             "default": "",
             "mpv": ""

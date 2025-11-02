@@ -23,11 +23,15 @@ output eDP-1 {
     resolution 2160x1350
     scale 1.00
     adaptive_sync on
+    max_render_time 3  
 }
 
 
-exec pkill -x dunst
-exec mako
+exec_always {
+    pkill -x dunst
+    pkill -x mako
+    mako
+}
 
 ### tomorrow night bright color scheme ---------------------------------------------
 set $bg       #000000
@@ -89,16 +93,16 @@ exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 
 set $shots ~/Pictures/Screenshots
-exec_always mkdir -p $shots
+exec mkdir -p $shots
 # Print → copy selected area to clipboard (no file saved)
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 # Shift+Print → save selected area
 bindsym Shift+Print exec grim -g "$(slurp)" $shots/area-$(date +%F_%H-%M-%S).png
 
-### Idle configuration
+### Idle configuration (optimized for battery life)
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         timeout 180 'swaylock -f -c 000000' \
+         timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration

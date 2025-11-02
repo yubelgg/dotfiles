@@ -26,14 +26,35 @@ setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_dups
 
-# nvm 
-source /usr/share/nvm/init-nvm.sh
+# nvm - lazy load (only initialize when node/npm/nvm is called)
+export NVM_DIR="/usr/share/nvm"
+nvm() {
+    unset -f nvm node npm
+    source "$NVM_DIR/init-nvm.sh"
+    nvm "$@"
+}
+node() {
+    unset -f nvm node npm
+    source "$NVM_DIR/init-nvm.sh"
+    node "$@"
+}
+npm() {
+    unset -f nvm node npm
+    source "$NVM_DIR/init-nvm.sh"
+    npm "$@"
+}
 
-# pyenv 
+# pyenv - cache init for faster startup
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+PYENV_CACHE="$HOME/.cache/pyenv-init.zsh"
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  # Regenerate cache if older than 1 hour or doesn't exist
+  if [[ ! -f "$PYENV_CACHE" ]] || [[ -n $(find "$PYENV_CACHE" -mmin +60 2>/dev/null) ]]; then
+    mkdir -p "$(dirname "$PYENV_CACHE")"
+    pyenv init - > "$PYENV_CACHE"
+  fi
+  source "$PYENV_CACHE"
 fi
 
 # Auto-start tmux in Alacritty
@@ -43,4 +64,14 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     fi
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Homebrew - cache shellenv for faster startup
+BREW_CACHE="$HOME/.cache/brew-shellenv.zsh"
+if [[ ! -f "$BREW_CACHE" ]] || [[ -n $(find "$BREW_CACHE" -mmin +60 2>/dev/null) ]]; then
+    mkdir -p "$(dirname "$BREW_CACHE")"
+    /home/linuxbrew/.linuxbrew/bin/brew shellenv > "$BREW_CACHE"
+fi
+source "$BREW_CACHE"
+
+# Performance optimizations - disable animations system-wide
+export QT_STYLE_OVERRIDE=gtk2
+export GTK_ENABLE_ANIMATIONS=0
