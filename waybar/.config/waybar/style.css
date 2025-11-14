@@ -1,18 +1,24 @@
 window#waybar {
-    background: transparent;
-}
-
-#workspaces * {
-  transition: none;          /* no animations for workspaces */
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0;
 }
 
 * {
-    color: white;
-    border-radius: 10px;
-    padding: 0;
-    margin: 0;
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 16px;
+  color: white;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 20px;
+  transition: none;
+}
+
+/* Workspace icons */
+#workspaces {
+  background: transparent;
+  border: none;
+  margin-left: 7px;
+  padding: 3px 10px;
 }
 
 #clock,
@@ -22,43 +28,41 @@ window#waybar {
 #pulseaudio,
 #memory,
 #backlight,
-#workspaces,
 #mpris {
-    border: 1px rgba(255, 255, 255, 0.3) solid;
-    padding: 1px 10px;
-    background: rgba(0, 0, 0, 0.15);
-    transition: none;  /* Disabled for performance */
+  background: transparent;
+  border: none;
+  padding: 3px 8px;
+  font-weight: 500;
+  transition: none;
 }
 
-#workspaces {
-    margin-left: 7px;
+#cpu {
+  min-width: 60px;
+}
+
+#memory {
+  min-width: 60px;
+}
+
+#battery {
+  min-width: 60px;
+}
+
+#backlight {
+  min-width: 60px;
 }
 
 #pulseaudio {
-    margin-right: 7px;
-    padding: 5px 15px 5px 10px;
-}
-
-#clock:hover,
-#battery:hover,
-#cpu:hover,
-#network:hover,
-#pulseaudio:hover,
-#memory:hover,
-#backlight:hover,
-#workspaces:hover,
-#mpris:hover {
-    border: 1px rgba(255, 255, 255, 0.7) solid;
-    /* Padding change removed to avoid layout reflow */
-    border-radius: 20px;
+  margin-right: 7px;
+  min-width: 65px;
 }
 
 #battery.critical,
 #memory.critical,
 #cpu.critical {
-    color: #d80000;
+  color: #d80000;
 }
 
 #battery.warning {
-    color: orange;
+  color: orange;
 }

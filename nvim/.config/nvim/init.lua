@@ -17,6 +17,9 @@ require("options")
 require("keymaps")
 
 require("lazy").setup("plugins", {
+	ui = {
+		border = "rounded",
+	},
 	performance = {
 		cache = {
 			enabled = true,

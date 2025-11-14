@@ -14,16 +14,22 @@ set $lock swaylock -f -c 000000
 
 xwayland enable
 
-gaps inner 8
+# gaps inner 8
 default_border pixel 2
 
-output * bg ~/Pictures/Wallpapers/halloween.jpg fill
+# SwayFX blur effects
+blur disable
+blur_passes 2
+blur_radius 4
+
+shadows disable
+
+output * bg ~/Pictures/Wallpapers/white-rose.jpg fill
 
 output eDP-1 {
     resolution 2160x1350
     scale 1.00
     adaptive_sync on
-    max_render_time 3  
 }
 
 
@@ -58,20 +64,34 @@ client.background       $bg
 
 for_window [app_id="zen"] move to workspace 1
 for_window [app_id="Alacritty"] move to workspace 3
+for_window [app_id="com.mitchellh.ghostty"] move to workspace 3
+for_window [app_id="com.mitchellh.ghostty"] blur enable
 
-for_window [app_id="thunar"] floating enable, resize set 1000 800
-for_window [class="vlc"] floating enable, resize set 1200 800
-for_window [app_id="pavucontrol"] floating enable, resize set 600 600
+for_window [app_id="thunar"] floating enable, resize set 1000 800, move position center
+for_window [app_id="pavucontrol"] floating enable, resize set 600 600, move position center
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
 
 for_window [window_type="dialog"]        floating enable, move position center
 for_window [window_type="utility"]       floating enable, move position center
-for_window [window_type="toolbar"]       floating enable
-for_window [window_type="splash"]        floating enable
+for_window [window_type="toolbar"]       floating enable, move position center
+for_window [window_type="splash"]        floating enable, move position center
 for_window [window_type="menu"]          floating enable, move position center
-for_window [window_type="dropdown_menu"] floating enable
-for_window [window_type="popup_menu"]    floating enable
-for_window [window_type="tooltip"]       floating enable
-for_window [window_type="notification"]  floating enable
+for_window [window_type="dropdown_menu"] floating enable, move position center
+for_window [window_type="popup_menu"]    floating enable, move position center
+for_window [window_type="tooltip"]       floating enable, move position center
+for_window [window_type="notification"]  floating enable, move position center
+
+for_window [window_role="pop-up"] floating enable, move position center
+for_window [window_role="task_dialog"] floating enable, move position center
+for_window [window_role="Preferences"] floating enable, move position center
+for_window [window_role="About"] floating enable, move position center
+for_window [window_role="bubble"] floating enable, move position center
+for_window [window_role="toolbox"] floating enable, move position center
+
+# Authentication dialogs (important for security)
+for_window [app_id="pinentry-qt"] floating enable, sticky enable
+for_window [window_role="Organizer"] floating enable
 
 # Title-based fallbacks (helpful for GTK/Firefox/Zen)
 for_window [title="^(Open File|Save File|Preferences|About|Organizer)$"] floating enable, move position center
@@ -81,6 +101,18 @@ for_window [title="^Picture-in-Picture$"] floating enable, sticky enable, resize
 
 # “Find” / “Print” / small utility dialogs
 for_window [title="^(Find|Print)$"] floating enable, move position center
+
+# Float all Zoom windows by default
+for_window [app_id="zoom"] floating enable
+
+# But keep the main meeting window tiled
+for_window [app_id="zoom" title="Zoom Meeting"] floating disable
+
+# Float and center the annoying notification window
+for_window [app_id="zoom" title="^zoom$"] floating enable, move position center
+
+# Float screen sharing controls
+for_window [title="zoom\s?share(bar|toolbar)?" ] floating enable
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -100,10 +132,10 @@ bindsym Print exec grim -g "$(slurp)" - | wl-copy
 bindsym Shift+Print exec grim -g "$(slurp)" $shots/area-$(date +%F_%H-%M-%S).png
 
 ### Idle configuration (optimized for battery life)
-exec swayidle -w \
-         timeout 180 'swaylock -f -c 000000' \
-         timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+#          timeout 180 'swaylock -f -c 000000' \
+#          timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
 input type:touchpad {

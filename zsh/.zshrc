@@ -75,3 +75,4 @@ source "$BREW_CACHE"
 # Performance optimizations - disable animations system-wide
 export QT_STYLE_OVERRIDE=gtk2
 export GTK_ENABLE_ANIMATIONS=0
+export _JAVA_AWT_WM_NONREPARENTING=1

@@ -32,6 +32,12 @@ return {
 						"--smart-case",
 						"--hidden",
 					},
+					-- Borders
+					borderchars = {
+						prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+						results = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+						preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+					},
 				},
 				pickers = {
 					find_files = {

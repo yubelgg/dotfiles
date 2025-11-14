@@ -4,11 +4,13 @@ shell-integration-features = no-cursor
 # Window settings
 window-decoration = false
 background-opacity = 0.75
+background-blur = true
 window-colorspace = srgb
 
 # Font settings
 font-family = JetBrainsMono Nerd Font
-font-size = 23
+font-style = SemiBold
+font-size = 28
 font-thicken = true
 
 # Cursor settings
