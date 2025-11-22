@@ -18,13 +18,13 @@ xwayland enable
 default_border pixel 2
 
 # SwayFX blur effects
-blur disable
-blur_passes 2
-blur_radius 4
+# blur disable
+# blur_passes 2
+# blur_radius 4
+#
+# shadows disable
 
-shadows disable
-
-output * bg ~/Pictures/Wallpapers/white-rose.jpg fill
+output * bg ~/Pictures/Wallpapers/xian_ni.png fill
 
 output eDP-1 {
     resolution 2160x1350

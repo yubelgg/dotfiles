@@ -105,3 +105,10 @@ battop
 sudo pacman -S ttf-jetbrains-mono-nerd ttf-firacode-nerd ttf-hack-nerd ttf-meslo-nerd
 cd .config/alacritty/
 nvim alacritty.toml
+ls
+zsh
+zsh
+ls
+echo $SHELL
+sudo pacman -S ttf-jetbrains-mono-nerd ttf-firacode-nerd ttf-hack-nerd ttf-meslo-nerd
+reboot

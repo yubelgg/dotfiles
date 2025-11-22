@@ -76,3 +76,9 @@ source "$BREW_CACHE"
 export QT_STYLE_OVERRIDE=gtk2
 export GTK_ENABLE_ANIMATIONS=0
 export _JAVA_AWT_WM_NONREPARENTING=1
+export GTK_THEME=Arc-Dark
+export QT_QPA_PLATFORMTHEME=qt5ct
+export GTK_THEME=Arc-Dark
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
