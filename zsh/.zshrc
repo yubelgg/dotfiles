@@ -60,7 +60,7 @@ fi
 # Auto-start tmux in Alacritty
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     if [ -n "$ALACRITTY_SOCKET" ] || [ -n "$GHOSTTY_RESOURCES_DIR" ]; then
-        exec tmux new-session -A -s main
+        tmux new-session -A -s main
     fi
 fi
 

@@ -20,3 +20,6 @@ cursor-style-blink = false
 theme = Tomorrow Night Bright 
 confirm-close-surface = false
 
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig

@@ -24,7 +24,7 @@ default_border pixel 2
 #
 # shadows disable
 
-output * bg ~/Pictures/Wallpapers/xian_ni.png fill
+output * bg ~/Pictures/Wallpapers/renegade-immortal.jpg fit
 
 output eDP-1 {
     resolution 2160x1350
